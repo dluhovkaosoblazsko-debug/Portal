@@ -707,26 +707,24 @@ button {
 }
 
 
-#loginView {
-  position: relative;
-  overflow: hidden;
+
+.status-logo-box {
+  margin-top: 22px;
+  min-height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-#loginView::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("logo_cech.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: min(75vw, 760px);
-  opacity: 0.14;
-  pointer-events: none;
-  z-index: 0;
+.status-logo-img {
+  max-width: 150px;
+  width: 70%;
+  height: auto;
+  opacity: 0.22;
+  object-fit: contain;
 }
 
-#loginView .container {
-  position: relative;
-  z-index: 1;
-}
 
