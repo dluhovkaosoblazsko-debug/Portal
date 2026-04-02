@@ -1,16 +1,13 @@
-# Portál týmu
+# Portál týmu – finální šablona
 
-Jednoduchý vstupní portál pro pracovní tým.
+Obsah:
+- index.html
+- styles.css
+- app.js
 
-## Obsah
-- úvodní stránka
-- rozcestník aplikací
-- příprava na budoucí přihlášení
-
-## Technologie
-- HTML
-- CSS
-- JavaScript
-
-## Hosting
-Portál je určen pro nasazení jako statický web na Render.
+## Použití
+1. Nahraj všechny tři soubory do kořene repozitáře.
+2. V Renderu nech:
+   - Build Command prázdné
+   - Publish Directory .
+3. Nahraď zástupné odkazy # skutečnými URL aplikací.
