@@ -723,7 +723,7 @@ button {
   max-width: 150px;
   width: 70%;
   height: auto;
-  opacity: 0.22;
+  opacity: 0.50;
   object-fit: contain;
 }
 
