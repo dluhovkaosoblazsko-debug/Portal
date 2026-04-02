@@ -3,54 +3,182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portál týmu Osoblažského cechu, z.ú.</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Portál týmu</title>
+  <meta name="description" content="Pracovní portál týmu – aplikace, dokumenty a přehledy na jednom místě." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <div class="hero__inner">
-        <p class="eyebrow">Interní rozcestník</p>
-        <h1>Portál týmu</h1>
-        <p class="hero__text">
-          Jedno místo pro vstup do všech pracovních aplikací.
-        </p>
-
-        <div class="hero__actions">
-          <button id="enterPortalBtn" class="btn btn--primary">Vstoupit do portálu</button>
-          <button id="logoutBtn" class="btn btn--secondary hidden">Zavřít portál</button>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div class="brand-text">
+          <h1>Portál týmu</h1>
+          <p>Jednotné pracovní prostředí</p>
         </div>
-
-        <p class="note">
-          Toto je první verze portálu. Přihlášení přes e-mail doplníme v dalším kroku.
-        </p>
       </div>
-    </header>
 
-    <main class="content">
-      <section id="welcomeSection" class="card">
-        <h2>Úvod</h2>
-        <p id="welcomeText">
-          Tady bude později přihlášení a řízený přístup pro členy týmu.
-        </p>
-        <p>
-          Zatím připravujeme základní rozcestník a vzhled portálu.
-        </p>
-      </section>
+      <nav class="main-nav" aria-label="Hlavní navigace">
+        <a href="#aplikace">Aplikace</a>
+        <a href="#informace">Informace</a>
+        <a href="#odkazy">Odkazy</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
 
-      <section id="appsSection" class="card hidden">
-        <div class="section-header">
-          <div>
-            <h2>Aplikace</h2>
-            <p class="section-subtitle">Kliknutím otevřeš konkrétní nástroj.</p>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="#">Přihlášení</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="badge">Interní portál</span>
+          <h2>Všechny důležité nástroje na jednom místě</h2>
+          <p>
+            Tento portál slouží jako společný vstup do pracovních aplikací,
+            dokumentů a přehledů. Vyberte nástroj, se kterým chcete pracovat.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#aplikace">Otevřít aplikace</a>
+            <a class="btn btn-ghost" href="#odkazy">Rychlé odkazy</a>
           </div>
         </div>
 
-        <div id="appsGrid" class="apps-grid"></div>
-      </section>
-    </main>
-  </div>
+        <div class="hero-panel">
+          <div class="status-card">
+            <h3>Stav portálu</h3>
+            <ul>
+              <li><span class="dot dot-green"></span> Portál je dostupný</li>
+              <li><span class="dot dot-blue"></span> 2 aplikace aktivní</li>
+              <li><span class="dot dot-gray"></span> Další moduly se připravují</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script src="app.js"></script>
+    <section id="aplikace" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Dostupné aplikace</h2>
+          <p>Vyberte nástroj, se kterým chcete pracovat.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card app-card">
+            <div class="card-icon">📁</div>
+            <span class="card-tag">Aktivní</span>
+            <h3>Evidence</h3>
+            <p>Pomůcka pro tvorbu zápisů.</p>
+            <a class="btn btn-primary btn-small" href="https://e-l-a-i.onrender.com">Otevřít</a>
+          </article>
+
+          <article class="card app-card">
+            <div class="card-icon">📊</div>
+            <span class="card-tag">Aktivní</span>
+            <h3>Výkazy</h3>
+            <p>Tvorba dokumentů a listin</p>
+            <a class="btn btn-primary btn-small" href="https://dokument-creator.onrender.com">Otevřít</a>
+          </article>
+
+          <article class="card app-card">
+            <div class="card-icon">📄</div>
+            <span class="card-tag card-tag-muted">Připravuje se</span>
+            <h3>Dokumenty</h3>
+            <p>Přístup k formulářům, vzorům a interním šablonám.</p>
+            <a class="btn btn-disabled btn-small" href="#" aria-disabled="true">Brzy</a>
+          </article>
+
+          <article class="card app-card">
+            <div class="card-icon">🧭</div>
+            <span class="card-tag card-tag-muted">Připravuje se</span>
+            <h3>Přehledy</h3>
+            <p>Rychlý přístup k důležitým souhrnům a kontrolám.</p>
+            <a class="btn btn-disabled btn-small" href="#" aria-disabled="true">Brzy</a>
+          </article>
+
+          <article class="card app-card">
+            <div class="card-icon">⚙️</div>
+            <span class="card-tag card-tag-muted">Připravuje se</span>
+            <h3>Nastavení</h3>
+            <p>Uživatelské údaje, přístupy a základní správa portálu.</p>
+            <a class="btn btn-disabled btn-small" href="#" aria-disabled="true">Brzy</a>
+          </article>
+
+          <article class="card app-card add-card">
+            <div class="card-icon">＋</div>
+            <h3>Další modul</h3>
+            <p>Prostor pro další aplikaci, kterou později přidáte.</p>
+            <a class="btn btn-ghost btn-small" href="#">Rezervováno</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="informace" class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Aktuální informace</h2>
+          <p>Krátké zprávy pro tým a provozní oznámení.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="card info-card">
+            <h3>Novinky</h3>
+            <ul class="info-list">
+              <li>Byla nasazena první verze portálu.</li>
+              <li>Úvodní rozcestník je nyní aktivní.</li>
+              <li>Další moduly budou postupně doplněny.</li>
+            </ul>
+          </article>
+
+          <article class="card info-card">
+            <h3>Provozní oznámení</h3>
+            <ul class="info-list">
+              <li>V případě potíží kontaktujte správce systému.</li>
+              <li>Odstávky a změny budou uváděny zde.</li>
+              <li>Důležité odkazy najdete níže.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="odkazy" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Rychlé odkazy</h2>
+          <p>Často používané interní zdroje.</p>
+        </div>
+
+        <div class="links-grid">
+          <a class="quick-link" href="#">Metodiky</a>
+          <a class="quick-link" href="#">Formuláře</a>
+          <a class="quick-link" href="#">Kontakty</a>
+          <a class="quick-link" href="#">Sdílené dokumenty</a>
+          <a class="quick-link" href="#">Nápověda</a>
+          <a class="quick-link" href="#">Technická podpora</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontakt" class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Portál týmu</strong>
+        <p>Interní pracovní prostředí pro aplikace, dokumenty a přehledy.</p>
+      </div>
+
+      <div class="footer-meta">
+        <p>Verze 1.0</p>
+        <p>Správce systému: <a href="mailto:admin@example.cz">admin@example.cz</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
