@@ -172,6 +172,25 @@ button {
   align-items: center;
 }
 
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-email {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .menu-toggle {
   display: none;
   width: 46px;

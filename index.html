@@ -39,8 +39,10 @@
           <a href="#kontakt">Kontakt</a>
         </nav>
 
-        <div class="header-actions">
-          <a class="btn btn-secondary btn-small" href="#">Přihlášení</a>
+        <div class="header-actions auth-actions">
+          <span id="userEmail" class="user-email hidden"></span>
+          <a class="btn btn-secondary btn-small" href="#" id="loginBtn">Přihlášení</a>
+          <a class="btn btn-ghost btn-small hidden" href="#" id="logoutBtn">Odhlášení</a>
         </div>
       </div>
     </header>
@@ -231,7 +233,7 @@
             </a>
 
             <a class="quick-link card-panel" href="https://dokument-creator.onrender.com/">
-              <span class="quick-link-title">Tvorma listin</span>
+              <span class="quick-link-title">Tvorba listin</span>
               <span class="quick-link-text">Šablony a interní dokumenty</span>
             </a>
 
@@ -277,9 +279,7 @@
     </footer>
   </div>
 
-  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
 </body>
 </html>

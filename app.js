@@ -4,12 +4,12 @@ const SUPABASE_ANON_KEY = "sb_publishable_DMe6KD4N6NbYT1ebAngfBg_xeOUbInv";
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initCurrentDate();
   initActiveAppsCount();
   initNavHighlight();
+  initAuth();
 });
 
 function initMobileMenu() {
@@ -46,13 +46,11 @@ function initCurrentDate() {
   if (!dateEl) return;
 
   const now = new Date();
-  const formatted = now.toLocaleDateString("cs-CZ", {
+  dateEl.textContent = now.toLocaleDateString("cs-CZ", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric"
   });
-
-  dateEl.textContent = formatted;
 }
 
 function initActiveAppsCount() {
@@ -90,4 +88,94 @@ function initNavHighlight() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+async function initAuth() {
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const userEmail = document.getElementById("userEmail");
+
+  if (!loginBtn || !logoutBtn || !userEmail) return;
+
+  loginBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleLogin();
+  });
+
+  logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleLogout();
+  });
+
+  sb.auth.onAuthStateChange((_event, session) => {
+    updateAuthUI(session);
+  });
+
+  const { data, error } = await sb.auth.getSession();
+
+  if (error) {
+    console.error("Chyba při načtení session:", error.message);
+    updateAuthUI(null);
+    return;
+  }
+
+  updateAuthUI(data.session);
+}
+
+async function handleLogin() {
+  const email = window.prompt("Zadej svůj e-mail pro přihlášení:");
+  if (!email) return;
+
+  const cleanEmail = email.trim();
+  if (!cleanEmail.includes("@")) {
+    alert("Zadaný e-mail nevypadá správně.");
+    return;
+  }
+
+  const { error } = await sb.auth.signInWithOtp({
+    email: cleanEmail,
+    options: {
+      emailRedirectTo: window.location.origin
+    }
+  });
+
+  if (error) {
+    console.error(error);
+    alert("Nepodařilo se odeslat přihlašovací e-mail: " + error.message);
+    return;
+  }
+
+  alert("Na e-mail byl odeslán přihlašovací odkaz. Otevři schránku a klikni na něj.");
+}
+
+async function handleLogout() {
+  const { error } = await sb.auth.signOut();
+
+  if (error) {
+    console.error(error);
+    alert("Odhlášení selhalo: " + error.message);
+    return;
+  }
+
+  alert("Byl jsi odhlášen.");
+}
+
+function updateAuthUI(session) {
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const userEmail = document.getElementById("userEmail");
+
+  if (!loginBtn || !logoutBtn || !userEmail) return;
+
+  if (session && session.user) {
+    loginBtn.classList.add("hidden");
+    logoutBtn.classList.remove("hidden");
+    userEmail.classList.remove("hidden");
+    userEmail.textContent = session.user.email || "Přihlášený uživatel";
+  } else {
+    loginBtn.classList.remove("hidden");
+    logoutBtn.classList.add("hidden");
+    userEmail.classList.add("hidden");
+    userEmail.textContent = "";
+  }
 }
