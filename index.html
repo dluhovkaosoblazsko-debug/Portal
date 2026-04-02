@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portál týmu</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page">
@@ -16,17 +16,17 @@
           Jedno místo pro vstup do všech pracovních aplikací.
         </p>
 
-        <div id="authSection" class="auth-box">
-          <label for="emailInput" class="auth-label">Pracovní e-mail</label>
-          <div class="auth-row">
-            <input id="emailInput" class="auth-input" type="email" placeholder="jmeno@organizace.cz" />
-            <button id="loginBtn" class="btn btn--primary">Poslat Magic Link</button>
-            <button id="logoutBtn" class="btn btn--secondary hidden">Odhlásit</button>
-          </div>
-          <p id="statusMessage" class="status-message">
-            Přihlášení funguje jen pro uživatele, kteří už jsou vytvořeni v Supabase Authentication.
-          </p>
+        <div class="hero__actions">
+          <button id="loginBtn" class="btn btn--primary">Přihlásit se</button>
+          <button id="logoutBtn" class="btn btn--secondary hidden">Odhlásit se</button>
+          <button id="enterPortalBtn" class="btn btn--secondary">Vstoupit do portálu</button>
+          <button id="closePortalBtn" class="btn btn--secondary hidden">Zavřít portál</button>
         </div>
+
+        <p id="authStatus" class="note">
+          Přihlašování probíhá přes e-mailový odkaz.
+        </p>
+        <p id="userEmail" class="note hidden"></p>
       </div>
     </header>
 
@@ -34,7 +34,10 @@
       <section id="welcomeSection" class="card">
         <h2>Úvod</h2>
         <p id="welcomeText">
-          Přihlas se pracovním e-mailem. Po úspěšném přihlášení se zobrazí dostupné aplikace.
+          Tady bude později přihlášení a řízený přístup pro členy týmu.
+        </p>
+        <p>
+          Zatím připravujeme základní rozcestník a vzhled portálu.
         </p>
       </section>
 
