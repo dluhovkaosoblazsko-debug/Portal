@@ -705,3 +705,26 @@ button {
     display: none;
   }
 }
+
+#loginView {
+  position: relative;
+  overflow: hidden;
+}
+
+#loginView::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("logo_cech.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: min(60vw, 520px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#loginView .container {
+  position: relative;
+  z-index: 1;
+}
