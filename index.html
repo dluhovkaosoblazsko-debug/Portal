@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portál týmu Osoblažského cechu, z.ú.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero__inner">
+        <p class="eyebrow">Interní rozcestník</p>
+        <h1>Portál týmu</h1>
+        <p class="hero__text">
+          Jedno místo pro vstup do všech pracovních aplikací.
+        </p>
+
+        <div class="hero__actions">
+          <button id="enterPortalBtn" class="btn btn--primary">Vstoupit do portálu</button>
+          <button id="logoutBtn" class="btn btn--secondary hidden">Zavřít portál</button>
+        </div>
+
+        <p class="note">
+          Toto je první verze portálu. Přihlášení přes e-mail doplníme v dalším kroku.
+        </p>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="welcomeSection" class="card">
+        <h2>Úvod</h2>
+        <p id="welcomeText">
+          Tady bude později přihlášení a řízený přístup pro členy týmu.
+        </p>
+        <p>
+          Zatím připravujeme základní rozcestník a vzhled portálu.
+        </p>
+      </section>
+
+      <section id="appsSection" class="card hidden">
+        <div class="section-header">
+          <div>
+            <h2>Aplikace</h2>
+            <p class="section-subtitle">Kliknutím otevřeš konkrétní nástroj.</p>
+          </div>
+        </div>
+
+        <div id="appsGrid" class="apps-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
