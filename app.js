@@ -1,8 +1,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 // DOPLŇ svoje hodnoty ze Supabase > Project Settings > API
-const SUPABASE_URL = 'DOPLN_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'DOPLN_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'mqknxtloygnqbhjukhgt';
+const SUPABASE_ANON_KEY = 'sb_publishable_DMe6KD4N6NbYT1ebAngfBg_xeOUbInv';
 
 const apps = [
   {
