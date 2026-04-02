@@ -706,6 +706,7 @@ button {
   }
 }
 
+
 #loginView {
   position: relative;
   overflow: hidden;
@@ -718,8 +719,8 @@ button {
   background-image: url("logo_cech.png");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: min(60vw, 520px);
-  opacity: 0.06;
+  background-size: min(75vw, 760px);
+  opacity: 0.14;
   pointer-events: none;
   z-index: 0;
 }
@@ -728,3 +729,4 @@ button {
   position: relative;
   z-index: 1;
 }
+
