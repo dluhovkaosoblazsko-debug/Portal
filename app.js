@@ -92,12 +92,18 @@ function initNavHighlight() {
 
 async function initAuth() {
   const loginBtn = document.getElementById("loginBtn");
+  const heroLoginBtn = document.getElementById("heroLoginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
   const userEmail = document.getElementById("userEmail");
 
-  if (!loginBtn || !logoutBtn || !userEmail) return;
+  if (!loginBtn || !heroLoginBtn || !logoutBtn || !userEmail) return;
 
   loginBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleLogin();
+  });
+
+  heroLoginBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     await handleLogin();
   });
@@ -127,7 +133,6 @@ async function handleLogin() {
   if (!email) return;
 
   const cleanEmail = email.trim();
-
   if (!cleanEmail.includes("@")) {
     alert("Zadaný e-mail nevypadá správně.");
     return;
@@ -142,10 +147,12 @@ async function handleLogin() {
 
   if (error) {
     console.error(error);
+    setAuthMessage("Nepodařilo se odeslat přihlašovací e-mail: " + error.message);
     alert("Nepodařilo se odeslat přihlašovací e-mail: " + error.message);
     return;
   }
 
+  setAuthMessage("Na e-mail byl odeslán přihlašovací odkaz. Otevři schránku a klikni na něj.");
   alert("Na e-mail byl odeslán přihlašovací odkaz. Otevři schránku a klikni na něj.");
 }
 
@@ -158,25 +165,37 @@ async function handleLogout() {
     return;
   }
 
+  setAuthMessage("Přihlašování probíhá přes e-mailový odkaz.");
   alert("Byl jsi odhlášen.");
 }
 
 function updateAuthUI(session) {
+  const loginView = document.getElementById("loginView");
+  const appView = document.getElementById("appView");
   const loginBtn = document.getElementById("loginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
   const userEmail = document.getElementById("userEmail");
 
-  if (!loginBtn || !logoutBtn || !userEmail) return;
+  if (!loginView || !appView || !loginBtn || !logoutBtn || !userEmail) return;
 
   if (session && session.user) {
+    loginView.classList.add("hidden");
+    appView.classList.remove("hidden");
     loginBtn.classList.add("hidden");
     logoutBtn.classList.remove("hidden");
     userEmail.classList.remove("hidden");
     userEmail.textContent = session.user.email || "Přihlášený uživatel";
   } else {
+    loginView.classList.remove("hidden");
+    appView.classList.add("hidden");
     loginBtn.classList.remove("hidden");
     logoutBtn.classList.add("hidden");
     userEmail.classList.add("hidden");
     userEmail.textContent = "";
   }
+}
+
+function setAuthMessage(message) {
+  const authMessage = document.getElementById("authMessage");
+  if (authMessage) authMessage.textContent = message;
 }

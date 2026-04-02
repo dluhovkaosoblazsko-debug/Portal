@@ -48,27 +48,24 @@
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section id="loginView" class="hero">
         <div class="container hero-grid">
           <div class="hero-content card-glass">
             <div class="badge">Interní portál</div>
-
             <h1>Všechny důležité nástroje na jednom místě</h1>
-
             <p class="hero-text">
               Tento portál slouží jako společný vstup do pracovních aplikací,
               dokumentů a přehledů. Vyberte nástroj, se kterým chcete pracovat.
             </p>
-
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#aplikace">Otevřít aplikace</a>
+              <a class="btn btn-primary" href="#" id="heroLoginBtn">Přihlásit se</a>
               <a class="btn btn-ghost" href="#odkazy">Rychlé odkazy</a>
             </div>
+            <p id="authMessage" class="auth-message">Přihlášení probíhá přes e-mailový odkaz.</p>
           </div>
 
           <aside class="hero-side card-glass">
             <h2>Stav portálu</h2>
-
             <ul class="status-list">
               <li>
                 <span class="status-dot dot-green"></span>
@@ -83,7 +80,6 @@
                 <span>Další moduly se připravují</span>
               </li>
             </ul>
-
             <div class="status-meta">
               <span>Poslední kontrola</span>
               <strong id="currentDate">—</strong>
@@ -92,173 +88,169 @@
         </div>
       </section>
 
-      <section class="section" id="aplikace">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Aplikace</p>
-              <h2>Dostupné aplikace</h2>
+      <div id="appView" class="hidden">
+        <section class="section" id="aplikace">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <p class="section-label">Aplikace</p>
+                <h2>Dostupné aplikace</h2>
+              </div>
+              <p class="section-text">Vyberte nástroj, se kterým chcete pracovat.</p>
             </div>
-            <p class="section-text">
-              Vyberte nástroj, se kterým chcete pracovat.
-            </p>
-          </div>
 
-          <div class="cards-grid">
-            <article class="app-card card-panel is-active" data-active="true">
-              <div class="card-top">
-                <div class="card-icon">📁</div>
-                <span class="tag tag-success">Aktivní</span>
-              </div>
-              <h3>Evidence</h3>
-              <p>Pomůcka pro tvorbu záznamů.</p>
-              <div class="card-actions">
-                <a class="btn btn-primary btn-small" href="https://e-l-a-i.onrender.com/">Otevřít</a>
-              </div>
-            </article>
+            <div class="cards-grid">
+              <article class="app-card card-panel is-active" data-active="true">
+                <div class="card-top">
+                  <div class="card-icon">📁</div>
+                  <span class="tag tag-success">Aktivní</span>
+                </div>
+                <h3>Evidence</h3>
+                <p>Pomůcka pro tvorbu záznamů.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary btn-small" href="https://e-l-a-i.onrender.com/" target="_blank" rel="noopener noreferrer">Otevřít</a>
+                </div>
+              </article>
 
-            <article class="app-card card-panel is-active" data-active="true">
-              <div class="card-top">
-                <div class="card-icon">📊</div>
-                <span class="tag tag-success">Aktivní</span>
-              </div>
-              <h3>Tvorba listin</h3>
-              <p>Tvorba dokumentů, formulářů a dalších listin.</p>
-              <div class="card-actions">
-                <a class="btn btn-primary btn-small" href="https://dokument-creator.onrender.com/">Otevřít</a>
-              </div>
-            </article>
+              <article class="app-card card-panel is-active" data-active="true">
+                <div class="card-top">
+                  <div class="card-icon">📊</div>
+                  <span class="tag tag-success">Aktivní</span>
+                </div>
+                <h3>Tvorba listin</h3>
+                <p>Tvorba dokumentů, formulářů a dalších listin.</p>
+                <div class="card-actions">
+                  <a class="btn btn-primary btn-small" href="https://dokument-creator.onrender.com/" target="_blank" rel="noopener noreferrer">Otevřít</a>
+                </div>
+              </article>
 
-            <article class="app-card card-panel">
-              <div class="card-top">
-                <div class="card-icon">📄</div>
-                <span class="tag tag-muted">Připravuje se</span>
-              </div>
-              <h3>Dokumenty</h3>
-              <p>Přístup k formulářům, vzorům a interním šablonám.</p>
-              <div class="card-actions">
-                <span class="btn btn-disabled btn-small">Brzy</span>
-              </div>
-            </article>
+              <article class="app-card card-panel">
+                <div class="card-top">
+                  <div class="card-icon">📄</div>
+                  <span class="tag tag-muted">Připravuje se</span>
+                </div>
+                <h3>Dokumenty</h3>
+                <p>Přístup k formulářům, vzorům a interním šablonám.</p>
+                <div class="card-actions">
+                  <span class="btn btn-disabled btn-small">Brzy</span>
+                </div>
+              </article>
 
-            <article class="app-card card-panel">
-              <div class="card-top">
-                <div class="card-icon">🧭</div>
-                <span class="tag tag-muted">Připravuje se</span>
-              </div>
-              <h3>Přehledy</h3>
-              <p>Rychlý přístup k důležitým souhrnům a kontrolám.</p>
-              <div class="card-actions">
-                <span class="btn btn-disabled btn-small">Brzy</span>
-              </div>
-            </article>
+              <article class="app-card card-panel">
+                <div class="card-top">
+                  <div class="card-icon">🧭</div>
+                  <span class="tag tag-muted">Připravuje se</span>
+                </div>
+                <h3>Přehledy</h3>
+                <p>Rychlý přístup k důležitým souhrnům a kontrolám.</p>
+                <div class="card-actions">
+                  <span class="btn btn-disabled btn-small">Brzy</span>
+                </div>
+              </article>
 
-            <article class="app-card card-panel">
-              <div class="card-top">
-                <div class="card-icon">⚙️</div>
-                <span class="tag tag-muted">Připravuje se</span>
-              </div>
-              <h3>Nastavení</h3>
-              <p>Uživatelské údaje, přístupy a základní správa portálu.</p>
-              <div class="card-actions">
-                <span class="btn btn-disabled btn-small">Brzy</span>
-              </div>
-            </article>
+              <article class="app-card card-panel">
+                <div class="card-top">
+                  <div class="card-icon">⚙️</div>
+                  <span class="tag tag-muted">Připravuje se</span>
+                </div>
+                <h3>Nastavení</h3>
+                <p>Uživatelské údaje, přístupy a základní správa portálu.</p>
+                <div class="card-actions">
+                  <span class="btn btn-disabled btn-small">Brzy</span>
+                </div>
+              </article>
 
-            <article class="app-card card-panel card-dashed">
-              <div class="card-top">
-                <div class="card-icon">＋</div>
-                <span class="tag tag-outline">Rezerva</span>
-              </div>
-              <h3>Další modul</h3>
-              <p>Prostor pro další aplikaci, kterou později přidáte.</p>
-              <div class="card-actions">
-                <span class="btn btn-disabled btn-small">Připraveno</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-soft" id="informace">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Informace</p>
-              <h2>Aktuální informace</h2>
+              <article class="app-card card-panel card-dashed">
+                <div class="card-top">
+                  <div class="card-icon">＋</div>
+                  <span class="tag tag-outline">Rezerva</span>
+                </div>
+                <h3>Další modul</h3>
+                <p>Prostor pro další aplikaci, kterou později přidáte.</p>
+                <div class="card-actions">
+                  <span class="btn btn-disabled btn-small">Připraveno</span>
+                </div>
+              </article>
             </div>
-            <p class="section-text">
-              Krátké zprávy pro tým a provozní oznámení.
-            </p>
           </div>
+        </section>
 
-          <div class="info-grid">
-            <article class="info-card card-panel">
-              <h3>Novinky</h3>
-              <ul>
-                <li>Byla nasazena první verze portálu.</li>
-                <li>Úvodní rozcestník je nyní aktivní.</li>
-                <li>Další moduly budou postupně doplněny.</li>
-              </ul>
-            </article>
-
-            <article class="info-card card-panel">
-              <h3>Provozní oznámení</h3>
-              <ul>
-                <li>V případě potíží kontaktujte správce systému.</li>
-                <li>Odstávky a změny budou uváděny zde.</li>
-                <li>Důležité odkazy najdete níže.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="odkazy">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Odkazy</p>
-              <h2>Rychlé odkazy</h2>
+        <section class="section section-soft" id="informace">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <p class="section-label">Informace</p>
+                <h2>Aktuální informace</h2>
+              </div>
+              <p class="section-text">Krátké zprávy pro tým a provozní oznámení.</p>
             </div>
-            <p class="section-text">
-              Často používané interní zdroje.
-            </p>
+
+            <div class="info-grid">
+              <article class="info-card card-panel">
+                <h3>Novinky</h3>
+                <ul>
+                  <li>Byla nasazena první verze portálu.</li>
+                  <li>Úvodní rozcestník je nyní aktivní.</li>
+                  <li>Další moduly budou postupně doplněny.</li>
+                </ul>
+              </article>
+
+              <article class="info-card card-panel">
+                <h3>Provozní oznámení</h3>
+                <ul>
+                  <li>V případě potíží kontaktujte správce systému.</li>
+                  <li>Odstávky a změny budou uváděny zde.</li>
+                  <li>Důležité odkazy najdete níže.</li>
+                </ul>
+              </article>
+            </div>
           </div>
+        </section>
 
-          <div class="links-grid">
-            <a class="quick-link card-panel" href="#">
-              <span class="quick-link-title">Metodiky</span>
-              <span class="quick-link-text">Pracovní postupy a pravidla</span>
-            </a>
+        <section class="section" id="odkazy">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <p class="section-label">Odkazy</p>
+                <h2>Rychlé odkazy</h2>
+              </div>
+              <p class="section-text">Často používané interní zdroje.</p>
+            </div>
 
-            <a class="quick-link card-panel" href="https://dokument-creator.onrender.com/">
-              <span class="quick-link-title">Tvorba listin</span>
-              <span class="quick-link-text">Šablony a interní dokumenty</span>
-            </a>
+            <div class="links-grid">
+              <a class="quick-link card-panel" href="#">
+                <span class="quick-link-title">Metodiky</span>
+                <span class="quick-link-text">Pracovní postupy a pravidla</span>
+              </a>
 
-            <a class="quick-link card-panel" href="#">
-              <span class="quick-link-title">Kontakty</span>
-              <span class="quick-link-text">Důležité osoby a spojení</span>
-            </a>
+              <a class="quick-link card-panel" href="https://dokument-creator.onrender.com/" target="_blank" rel="noopener noreferrer">
+                <span class="quick-link-title">Tvorba listin</span>
+                <span class="quick-link-text">Šablony a interní dokumenty</span>
+              </a>
 
-            <a class="quick-link card-panel" href="#">
-              <span class="quick-link-title">Sdílené dokumenty</span>
-              <span class="quick-link-text">Práce se společnými soubory</span>
-            </a>
+              <a class="quick-link card-panel" href="#">
+                <span class="quick-link-title">Kontakty</span>
+                <span class="quick-link-text">Důležité osoby a spojení</span>
+              </a>
 
-            <a class="quick-link card-panel" href="#">
-              <span class="quick-link-title">Nápověda</span>
-              <span class="quick-link-text">Základní návod k používání</span>
-            </a>
+              <a class="quick-link card-panel" href="#">
+                <span class="quick-link-title">Sdílené dokumenty</span>
+                <span class="quick-link-text">Práce se společnými soubory</span>
+              </a>
 
-            <a class="quick-link card-panel" href="#">
-              <span class="quick-link-title">Technická podpora</span>
-              <span class="quick-link-text">Kam psát při potížích</span>
-            </a>
+              <a class="quick-link card-panel" href="#">
+                <span class="quick-link-title">Nápověda</span>
+                <span class="quick-link-text">Základní návod k používání</span>
+              </a>
+
+              <a class="quick-link card-panel" href="#">
+                <span class="quick-link-title">Technická podpora</span>
+                <span class="quick-link-text">Kam psát při potížích</span>
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer" id="kontakt">

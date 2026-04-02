@@ -187,6 +187,12 @@ button {
   white-space: nowrap;
 }
 
+.auth-message {
+  margin: 18px 0 0;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
 .hidden {
   display: none !important;
 }
@@ -641,10 +647,6 @@ button {
 
   .main-nav.is-open {
     display: flex;
-  }
-
-  .header-actions {
-    display: none;
   }
 
   .hero-grid {
