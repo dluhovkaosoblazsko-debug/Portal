@@ -1,3 +1,10 @@
+const SUPABASE_URL = "https://mqknxtloygnqbhjukhgt.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_DMe6KD4N6NbYT1ebAngfBg_xeOUbInv";
+
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initCurrentDate();
