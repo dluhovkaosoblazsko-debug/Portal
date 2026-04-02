@@ -1,62 +1,86 @@
-const apps = [
-  {
-    name: "Tvorba formulářů a listin",
-    description: "Tvorba formulářů a listin",
-    url: "https://dokument-creator.onrender.com/",
-    host: "GitHub / Render"
-  },
-  {
-    name: "E. L. A. I.",
-    description: "Tvorba zápisů",
-    url: "https://e-l-a-i.onrender.com",
-    host: "GitHub / Render"
-  },
-  {
-    name: "Dokumentace",
-    description: "Návody, postupy a interní informace.",
-    url: "https://example.com",
-    host: "GitHub / Render"
-  }
-];
+document.addEventListener("DOMContentLoaded", () => {
+  initMobileMenu();
+  initCurrentDate();
+  initActiveAppsCount();
+  initNavHighlight();
+});
 
-const enterPortalBtn = document.getElementById("enterPortalBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-const appsSection = document.getElementById("appsSection");
-const welcomeText = document.getElementById("welcomeText");
-const appsGrid = document.getElementById("appsGrid");
+function initMobileMenu() {
+  const menuToggle = document.getElementById("menuToggle");
+  const mainNav = document.getElementById("mainNav");
 
-function renderApps() {
-  appsGrid.innerHTML = "";
+  if (!menuToggle || !mainNav) return;
 
-  apps.forEach((app) => {
-    const article = document.createElement("article");
-    article.className = "app-card";
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 
-    article.innerHTML = `
-      <h3>${app.name}</h3>
-      <p>${app.description}</p>
-      <div class="app-meta">Umístění: ${app.host}</div>
-      <a class="app-link" href="${app.url}" target="_blank" rel="noopener noreferrer">Otevřít aplikaci →</a>
-    `;
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
 
-    appsGrid.appendChild(article);
+  document.addEventListener("click", (event) => {
+    const clickedInsideMenu = mainNav.contains(event.target);
+    const clickedToggle = menuToggle.contains(event.target);
+
+    if (!clickedInsideMenu && !clickedToggle) {
+      mainNav.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
   });
 }
 
-function openPortal() {
-  renderApps();
-  appsSection.classList.remove("hidden");
-  logoutBtn.classList.remove("hidden");
-  enterPortalBtn.classList.add("hidden");
-  welcomeText.textContent = "Portál je otevřený. Níže vidíš dostupné aplikace.";
+function initCurrentDate() {
+  const dateEl = document.getElementById("currentDate");
+  if (!dateEl) return;
+
+  const now = new Date();
+  const formatted = now.toLocaleDateString("cs-CZ", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+
+  dateEl.textContent = formatted;
 }
 
-function closePortal() {
-  appsSection.classList.add("hidden");
-  logoutBtn.classList.add("hidden");
-  enterPortalBtn.classList.remove("hidden");
-  welcomeText.textContent = "Tady bude později přihlášení a řízený přístup pro členy týmu.";
+function initActiveAppsCount() {
+  const countEl = document.getElementById("activeAppsCount");
+  if (!countEl) return;
+
+  const activeCards = document.querySelectorAll('[data-active="true"]');
+  countEl.textContent = activeCards.length;
 }
 
-enterPortalBtn.addEventListener("click", openPortal);
-logoutBtn.addEventListener("click", closePortal);
+function initNavHighlight() {
+  const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+  const sections = Array.from(navLinks)
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if (!navLinks.length || !sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = `#${entry.target.id}`;
+        const navLink = document.querySelector(`.main-nav a[href="${id}"]`);
+
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove("is-current"));
+          if (navLink) navLink.classList.add("is-current");
+        }
+      });
+    },
+    {
+      rootMargin: "-35% 0px -50% 0px",
+      threshold: 0.01
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
