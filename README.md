@@ -1,13 +1,25 @@
-# Portál týmu – finální šablona
+# Portál týmu
 
-Obsah:
-- index.html
-- styles.css
-- app.js
+Jednoduchý vstupní portál pro pracovní tým.
 
-## Použití
-1. Nahraj všechny tři soubory do kořene repozitáře.
-2. V Renderu nech:
-   - Build Command prázdné
-   - Publish Directory .
-3. Nahraď zástupné odkazy # skutečnými URL aplikací.
+## Obsah
+- přihlášení přes Supabase Magic Link
+- přístup jen pro existující uživatele v Supabase Authentication
+- rozcestník aplikací
+
+## Technologie
+- HTML
+- CSS
+- JavaScript
+- Supabase Auth
+
+## Důležité
+V souboru `app.js` doplň:
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+
+A v Supabase nastav správně:
+- Authentication > URL Configuration > Site URL
+- Authentication > URL Configuration > Redirect URLs
+
+Na produkci tam dej URL svého Render portálu.
