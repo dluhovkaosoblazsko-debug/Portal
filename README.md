@@ -134,3 +134,14 @@ Deploy flow:
 4. do Environment Variables vlozit `GEMINI_API_KEY`
 
 Pokud bys nasadil projekt znovu jako `Static Site`, budou fungovat jen HTML/CSS/JS stranky bez API logiky, ale OCR a pravni pomocnik nebudou fungovat.
+
+## Zabezpeceni portalu jednim heslem
+
+Portal podporuje `HTTP Basic Auth` primo v `server.js`.
+
+Na Render nastav:
+- `BASIC_AUTH_USER`
+- `BASIC_AUTH_PASSWORD`
+
+Pokud jsou obe hodnoty nastavene, server pred zobrazenim stranek vyzada uzivatelske jmeno a heslo v prohlizeci.
+Pokud nastavene nejsou, Basic Auth je vypnute.

@@ -37,16 +37,12 @@
           <a href="#kontakt">Kontakt</a>
         </nav>
 
-        <div class="header-actions auth-actions">
-          <span id="userEmail" class="user-email hidden"></span>
-          <a class="btn btn-secondary btn-small" href="#" id="loginBtn">Přihlášení</a>
-          <a class="btn btn-ghost btn-small hidden" href="#" id="logoutBtn">Odhlášení</a>
-        </div>
+        <div class="header-actions"></div>
       </div>
     </header>
 
     <main id="top">
-      <section id="loginView" class="hero">
+      <section class="hero">
         <div class="container hero-grid">
           <div class="hero-content card-glass">
             <div class="badge">Interní portál</div>
@@ -55,10 +51,6 @@
               Tento portál slouží jako společný vstup do pracovních aplikací,
               dokumentů a přehledů. Vyberte nástroj, se kterým chcete pracovat.
             </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#" id="heroLoginBtn">Přihlásit se</a>
-            </div>
-            <p id="authMessage" class="auth-message">Přihlášení probíhá přes e-mailový odkaz.</p>
           </div>
 
           <aside class="hero-side card-glass">
@@ -90,7 +82,7 @@
         </div>
       </section>
 
-      <div id="appView" class="hidden">
+      <div id="appView">
         <section class="section section-compact">
           <div class="container">
             <div class="priority-grid">
@@ -253,7 +245,6 @@
     </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js"></script>
 </body>
 </html>

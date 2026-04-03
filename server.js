@@ -14,6 +14,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 const GEMINI_API_BASE =
   process.env.GEMINI_API_BASE || "https://generativelanguage.googleapis.com/v1beta";
+const BASIC_AUTH_USER = process.env.BASIC_AUTH_USER || "";
+const BASIC_AUTH_PASSWORD = process.env.BASIC_AUTH_PASSWORD || "";
 
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -62,6 +64,48 @@ function loadEnvFile(filePath) {
 function sendJson(response, statusCode, payload) {
   response.writeHead(statusCode, { "Content-Type": "application/json; charset=utf-8" });
   response.end(JSON.stringify(payload));
+}
+
+function parseBasicAuthHeader(headerValue) {
+  if (!headerValue || !headerValue.startsWith("Basic ")) return null;
+
+  try {
+    const encoded = headerValue.slice("Basic ".length).trim();
+    const decoded = Buffer.from(encoded, "base64").toString("utf8");
+    const separatorIndex = decoded.indexOf(":");
+    if (separatorIndex === -1) return null;
+
+    return {
+      username: decoded.slice(0, separatorIndex),
+      password: decoded.slice(separatorIndex + 1)
+    };
+  } catch (_error) {
+    return null;
+  }
+}
+
+function isBasicAuthEnabled() {
+  return Boolean(BASIC_AUTH_USER && BASIC_AUTH_PASSWORD);
+}
+
+function isAuthorized(request) {
+  if (!isBasicAuthEnabled()) return true;
+
+  const credentials = parseBasicAuthHeader(request.headers.authorization || "");
+  if (!credentials) return false;
+
+  return (
+    credentials.username === BASIC_AUTH_USER &&
+    credentials.password === BASIC_AUTH_PASSWORD
+  );
+}
+
+function requestBasicAuth(response) {
+  response.writeHead(401, {
+    "WWW-Authenticate": 'Basic realm="Portal tymu", charset="UTF-8"',
+    "Content-Type": "text/plain; charset=utf-8"
+  });
+  response.end("Přístup jen pro autorizované uživatele.");
 }
 
 function readBody(request) {
@@ -603,6 +647,11 @@ function serveFile(requestPath, response) {
 
 const server = http.createServer(async (request, response) => {
   try {
+    if (!isAuthorized(request)) {
+      requestBasicAuth(response);
+      return;
+    }
+
     const url = new URL(request.url, `http://${request.headers.host}`);
 
     if (request.method === "POST" && url.pathname === "/api/legal-query") {
