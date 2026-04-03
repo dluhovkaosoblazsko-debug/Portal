@@ -121,6 +121,16 @@ function initAttendanceLinks() {
 }
 
 async function initAuth() {
+  if (isTrustedBypassHost()) {
+    updateAuthUI({
+      user: {
+        email: "lokalni.test@portal.local"
+      }
+    });
+    setAuthMessage("Přihlášení je pro tuto adresu dočasně vypnuto.");
+    return;
+  }
+
   const loginBtn = document.getElementById("loginBtn");
   const heroLoginBtn = document.getElementById("heroLoginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
@@ -228,4 +238,8 @@ function updateAuthUI(session) {
 function setAuthMessage(message) {
   const authMessage = document.getElementById("authMessage");
   if (authMessage) authMessage.textContent = message;
+}
+
+function isTrustedBypassHost() {
+  return ["localhost", "127.0.0.1", "portal-040d.onrender.com"].includes(window.location.hostname);
 }
