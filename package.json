@@ -1,0 +1,13 @@
+{
+  "name": "portal-tymu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interní portál týmu se statickými stránkami a minimálním Node serverem pro OCR a právní dotazy.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

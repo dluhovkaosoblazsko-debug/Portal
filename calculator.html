@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulačka oddlužení 2026</title>
+  <meta
+    name="description"
+    content="Orientační kalkulačka oddlužení 2026 s vysvětlením vstupů, mezivýpočtů a částky pro věřitele."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell calculator-page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">PT</div>
+          <div class="brand-text">
+            <strong>Portál týmu</strong>
+            <span>Kalkulačka oddlužení 2026</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a class="btn btn-secondary btn-small" href="index.html">Zpět</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero calculator-hero">
+        <div class="container calculator-hero-grid">
+          <div class="hero-content card-glass calculator-hero-card">
+            <div class="badge">Orientační nástroj</div>
+            <h1>Kalkulačka oddlužení 2026</h1>
+            <p class="hero-text">
+              Vlevo najdete pevné částky a limity pro rok 2026, vpravo vyplníte své údaje
+              a níže se okamžitě zobrazí měsíční splátka, částka k výplatě i částka pro nezajištěné věřitele.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#vypocet">Spočítat</a>
+              <a class="btn btn-secondary" href="index.html">Portál</a>
+            </div>
+            <p class="calculator-warning">
+              Výpočet je orientační. Skutečný průběh může ovlivnit výživné,
+              odměna správce a další prioritní pohledávky.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-compact" id="vypocet">
+        <div class="container calculator-layout calculator-layout-wide">
+          <section class="card-glass calculator-fixed-panel">
+            <div class="section-head calculator-head">
+              <div>
+                <p class="section-label">Rok 2026</p>
+                <h2>Pevné částky a limity</h2>
+              </div>
+              <p class="section-text">Tyto údaje jsou dané a uživatel je nemění.</p>
+            </div>
+
+            <div class="fixed-group">
+              <h3>Pevné částky</h3>
+              <div class="fixed-list">
+                <article class="fixed-item">
+                  <span>Životní minimum jednotlivce</span>
+                  <strong>4 860 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Normativní nájemné (1 osoba, obec nad 70 000)</span>
+                  <strong>9 430 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Energetický paušál (1 osoba)</span>
+                  <strong>2 300 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Nezabavitelná částka na dlužníka před zaokrouhlením</span>
+                  <strong>14 101,50 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Částka na vyživovanou osobu nebo partnera před zaokrouhlením</span>
+                  <strong>3 525,375 Kč</strong>
+                </article>
+              </div>
+            </div>
+
+            <div class="fixed-group">
+              <h3>Limity a pravidla</h3>
+              <div class="fixed-list">
+                <article class="fixed-item">
+                  <span>Hranice plně zabavitelné části</span>
+                  <strong>31 521 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Pravidlo třetin</span>
+                  <strong>Platí pro část zbytku do 31 521 Kč</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Odměna správce u jednotlivce</span>
+                  <strong>1 089 Kč / měsíc</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Odměna správce u manželů</span>
+                  <strong>1 633,50 Kč / měsíc</strong>
+                </article>
+                <article class="fixed-item">
+                  <span>Minimální splátka v oddlužení</span>
+                  <strong>2 200 Kč / měsíc</strong>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-glass calculator-form-panel">
+            <div class="section-head calculator-head">
+              <div>
+                <p class="section-label">Údaje dlužníka</p>
+                <h2>Vyplňte vstupy</h2>
+              </div>
+              <p class="section-text">Výsledek se přepočítá okamžitě po změně hodnot.</p>
+            </div>
+
+            <form class="calculator-form" id="calculatorForm">
+              <label class="field field-wide">
+                <span>Čistý měsíční příjem</span>
+                <input id="netIncome" name="netIncome" type="number" min="0" step="100" value="32000" />
+                <small class="field-help">Zadejte částku, kterou skutečně dostáváte po odvodech.</small>
+              </label>
+
+              <label class="field">
+                <span>Společné oddlužení manželů?</span>
+                <select id="debtorMode" name="debtorMode">
+                  <option value="single">Ne, jde o jednotlivce</option>
+                  <option value="joint">Ano, jde o společné oddlužení manželů</option>
+                </select>
+                <small class="field-help">Ovlivní hlavně odměnu insolvenčního správce.</small>
+              </label>
+
+              <label class="field">
+                <span>Počet vyživovaných osob</span>
+                <input id="dependents" name="dependents" type="number" min="0" max="20" step="1" value="0" />
+                <small class="field-help">Započtěte děti a další osoby, na které máte vyživovací povinnost.</small>
+              </label>
+
+              <label class="field field-wide field-checkbox">
+                <span>Započtení manžela nebo partnera</span>
+                <div class="checkbox-row">
+                  <input id="spouseProtected" name="spouseProtected" type="checkbox" />
+                  <label for="spouseProtected">Chci započítat manžela nebo partnera</label>
+                </div>
+                <small class="field-help">Pouze při splnění zákonné podmínky uvedené níže.</small>
+              </label>
+
+              <label class="field field-wide" id="spouseEligibilityField">
+                <span>Důvod pro započtení manžela nebo partnera</span>
+                <select id="spouseEligibility" name="spouseEligibility" disabled>
+                  <option value="none">Podmínka není splněna</option>
+                  <option value="debtor_old_age_pension">Dlužník pobírá starobní důchod</option>
+                  <option value="debtor_orphan_pension">Dlužník pobírá sirotčí důchod</option>
+                  <option value="debtor_disability_2_or_3">Dlužník pobírá invalidní důchod II. nebo III. stupně</option>
+                  <option value="spouse_old_age_pension">Manžel nebo partner pobírá starobní důchod</option>
+                  <option value="spouse_orphan_pension">Manžel nebo partner pobírá sirotčí důchod</option>
+                  <option value="spouse_disability_2_or_3">Manžel nebo partner pobírá invalidní důchod II. nebo III. stupně</option>
+                </select>
+                <small class="field-help">Bez splněné podmínky se částka na partnera nezapočítá.</small>
+              </label>
+
+              <label class="field">
+                <span>Běžné výživné (měsíčně)</span>
+                <input id="regularAlimony" name="regularAlimony" type="number" min="0" step="100" value="0" />
+                <small class="field-help">Částka určená soudem, kterou platíte každý měsíc.</small>
+              </label>
+
+              <label class="field">
+                <span>Dlužné výživné celkem</span>
+                <input id="arrearsAlimonyTotal" name="arrearsAlimonyTotal" type="number" min="0" step="100" value="0" />
+                <small class="field-help">Pokud zadáte dlužné výživné, měsíční odhad se předvyplní jako celkem / 36.</small>
+              </label>
+
+              <label class="field">
+                <span>Orientační měsíční úhrada dlužného výživného</span>
+                <input id="arrearsAlimonyMonthly" name="arrearsAlimonyMonthly" type="number" min="0" step="100" value="0" />
+                <small class="field-help">Pole můžete upravit podle vlastního odhadu.</small>
+              </label>
+
+              <label class="field">
+                <span>Další prioritní měsíční platby</span>
+                <input id="otherPriority" name="otherPriority" type="number" min="0" step="100" value="0" />
+                <small class="field-help">Zadejte jen další částky, které chcete v orientačním výpočtu zohlednit.</small>
+              </label>
+
+              <label class="field field-wide">
+                <span>Odhad výše dluhu</span>
+                <input id="totalDebt" name="totalDebt" type="number" min="0" step="1000" value="450000" />
+                <small class="field-help">Slouží pro orientační výpočet pokrytí dluhu, ne pro stanovení měsíční srážky.</small>
+              </label>
+            </form>
+
+            <div id="calculatorWarnings" class="calculator-inline-warnings hidden"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section section-compact" id="vysledky">
+        <div class="container">
+          <section class="card-glass calculator-results-panel">
+            <div class="section-head calculator-head">
+              <div>
+                <p class="section-label">Výsledek výpočtu</p>
+                <h2>Hlavní výstupy</h2>
+              </div>
+              <p class="section-text">Nejdůležitější částky pro rychlou orientaci.</p>
+            </div>
+
+            <div class="calculator-metrics">
+              <article class="metric-card">
+                <span class="metric-label">Celková nezabavitelná částka</span>
+                <strong id="totalProtected">0 Kč</strong>
+                <p>Částka, která má dlužníkovi zůstat před dalším výpočtem srážky.</p>
+              </article>
+
+              <article class="metric-card">
+                <span class="metric-label">Měsíční splátka do oddlužení</span>
+                <strong id="monthlyInstallment">0 Kč</strong>
+                <p>Orientační částka, která se z příjmu použije pro oddlužení.</p>
+              </article>
+
+              <article class="metric-card">
+                <span class="metric-label">Částka k výplatě</span>
+                <strong id="salaryLeft">0 Kč</strong>
+                <p>Orientační částka, která po srážce zůstane dlužníkovi.</p>
+              </article>
+
+              <article class="metric-card">
+                <span class="metric-label">Pro nezajištěné věřitele za měsíc</span>
+                <strong id="creditorMonthly">0 Kč</strong>
+                <p>Po odečtení správce, běžného výživného, dlužného výživného a dalších priorit.</p>
+              </article>
+            </div>
+
+            <div class="comparison-card">
+              <div>
+                <p class="section-label">Rozdělení splátky</p>
+                <h3>Měsíční a 36měsíční souhrn</h3>
+              </div>
+              <div class="comparison-grid">
+                <div class="comparison-item">
+                  <span>Odměna správce</span>
+                  <strong id="adminFee">0 Kč</strong>
+                </div>
+                <div class="comparison-item">
+                  <span>Běžné výživné</span>
+                  <strong id="regularAlimonyInfo">0 Kč</strong>
+                </div>
+                <div class="comparison-item">
+                  <span>Úhrada dlužného výživného</span>
+                  <strong id="arrearsAlimonyInfo">0 Kč</strong>
+                </div>
+                <div class="comparison-item">
+                  <span>Další prioritní platby</span>
+                  <strong id="otherPriorityInfo">0 Kč</strong>
+                </div>
+                <div class="comparison-item">
+                  <span>Celkem uhrazeno do oddlužení za 36 měsíců</span>
+                  <strong id="insolvencyTotal36">0 Kč</strong>
+                </div>
+                <div class="comparison-item">
+                  <span>Celkem pro nezajištěné věřitele za 36 měsíců</span>
+                  <strong id="creditorTotal36">0 Kč</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section section-compact" id="postup">
+        <div class="container">
+          <section class="card-glass calculator-results-panel">
+            <div class="section-head calculator-head">
+              <div>
+                <p class="section-label">Detaily</p>
+                <h2>Jak se k výsledku došlo</h2>
+              </div>
+              <p class="section-text">Volitelné mezivýpočty podle pravidel pro rok 2026.</p>
+            </div>
+
+            <div class="comparison-grid">
+              <div class="comparison-item">
+                <span>Základní nezabavitelná částka na dlužníka</span>
+                <strong id="basicProtected">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Součet před zaokrouhlením</span>
+                <strong id="totalProtectedRaw">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Zbytek příjmu po nezabavitelných částkách</span>
+                <strong id="remainingAfterProtected">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Část zbytku do 31 521 Kč</span>
+                <strong id="remainderUpToLimit">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Část zbytku nad 31 521 Kč</span>
+                <strong id="remainderAboveLimit">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Část do limitu upravená na násobek 3</span>
+                <strong id="thirdsPortion">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Dvě třetiny části do limitu</span>
+                <strong id="priorityPortion">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Hranice plně zabavitelné části</span>
+                <strong id="thirdsLimit">0 Kč</strong>
+              </div>
+              <div class="comparison-item">
+                <span>Pokrytí odhadovaného dluhu</span>
+                <strong id="debtCoverage">0 %</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-glass calculator-legal-panel">
+            <h2>Důležité upozornění</h2>
+            <ul class="calculator-legal-list">
+              <li>Výpočet je orientační a vychází z pravidel pro rok 2026.</li>
+              <li>Skutečný výsledek mohou ovlivnit výživné, odměna správce a další prioritní pohledávky.</li>
+              <li>Měsíční úhrada dlužného výživného je v této kalkulačce jen orientační odhad.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>

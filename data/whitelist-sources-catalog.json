@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0.0",
+  "config_name": "cz_debt_counseling_ai_source_policy",
+  "jurisdiction": "CZ",
+  "domain": "dluhove_poradenstvi",
+  "language": "cs",
+  "as_of_date": "2026-04-03",
+  "timezone": "Europe/Prague",
+  "sources": [
+    {
+      "id": "CZ-IZ-182-2006",
+      "nazev": "Insolvenční zákon",
+      "sbirka": "182/2006 Sb.",
+      "typ": "zakon",
+      "tier": "T1",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2006-182"
+    },
+    {
+      "id": "CZ-OSR-99-1963",
+      "nazev": "Občanský soudní řád",
+      "sbirka": "99/1963 Sb.",
+      "typ": "zakon",
+      "tier": "T1",
+      "source_url": "https://www.zakonyprolidi.cz/cs/1963-99"
+    },
+    {
+      "id": "CZ-ER-120-2001",
+      "nazev": "Exekuční řád",
+      "sbirka": "120/2001 Sb.",
+      "typ": "zakon",
+      "tier": "T1",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2001-120"
+    },
+    {
+      "id": "CZ-SOUBEZNE-VYKONY-119-2001",
+      "nazev": "Zákon o souběžně probíhajících výkonech rozhodnutí",
+      "sbirka": "119/2001 Sb.",
+      "typ": "zakon",
+      "tier": "T1",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2001-119"
+    },
+    {
+      "id": "CZ-NV-595-2006",
+      "nazev": "Nařízení vlády o nezabavitelných částkách",
+      "sbirka": "595/2006 Sb.",
+      "typ": "narizeni_vlady",
+      "tier": "T1",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2006-595"
+    },
+    {
+      "id": "CZ-OZ-89-2012",
+      "nazev": "Občanský zákoník",
+      "sbirka": "89/2012 Sb.",
+      "typ": "zakon",
+      "tier": "T2",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2012-89"
+    },
+    {
+      "id": "CZ-SU-257-2016",
+      "nazev": "Zákon o spotřebitelském úvěru",
+      "sbirka": "257/2016 Sb.",
+      "typ": "zakon",
+      "tier": "T2",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2016-257"
+    },
+    {
+      "id": "CZ-ZRS-292-2013",
+      "nazev": "Zákon o zvláštních řízeních soudních",
+      "sbirka": "292/2013 Sb.",
+      "typ": "zakon",
+      "tier": "T3",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2013-292"
+    },
+    {
+      "id": "CZ-DR-280-2009",
+      "nazev": "Daňový řád",
+      "sbirka": "280/2009 Sb.",
+      "typ": "zakon",
+      "tier": "T3",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2009-280"
+    },
+    {
+      "id": "CZ-ZEM-110-2006",
+      "nazev": "Zákon o životním a existenčním minimu",
+      "sbirka": "110/2006 Sb.",
+      "typ": "zakon",
+      "tier": "T4",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2006-110"
+    },
+    {
+      "id": "CZ-DSSP-151-2025",
+      "nazev": "Zákon o dávce státní sociální pomoci",
+      "sbirka": "151/2025 Sb.",
+      "typ": "zakon",
+      "tier": "T4",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2025-151"
+    },
+    {
+      "id": "CZ-HIST-HN-111-2006",
+      "nazev": "Zákon o pomoci v hmotné nouzi",
+      "sbirka": "111/2006 Sb.",
+      "typ": "zakon",
+      "tier": "T4",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2006-111"
+    },
+    {
+      "id": "CZ-HIST-SSP-117-1995",
+      "nazev": "Zákon o státní sociální podpoře",
+      "sbirka": "117/1995 Sb.",
+      "typ": "zakon",
+      "tier": "T4",
+      "source_url": "https://www.zakonyprolidi.cz/cs/1995-117"
+    },
+    {
+      "id": "CZ-VYHL-191-2017",
+      "nazev": "Vyhláška o náležitostech podání a formulářů elektronických podání v insolvenčním řízení",
+      "sbirka": "191/2017 Sb.",
+      "typ": "vyhlaska",
+      "tier": "T5",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2017-191"
+    },
+    {
+      "id": "CZ-VYHL-NOVELA-254-2024",
+      "nazev": "Novela insolvenční formulářové vyhlášky",
+      "sbirka": "254/2024 Sb.",
+      "typ": "vyhlaska",
+      "tier": "T5",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2024-254"
+    },
+    {
+      "id": "CZ-NOVELA-IZ-252-2024",
+      "nazev": "Novela insolvenčního zákona",
+      "sbirka": "252/2024 Sb.",
+      "typ": "zakon",
+      "tier": "T5",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2024-252"
+    },
+    {
+      "id": "CZ-NOVELA-NV-441-2024",
+      "nazev": "Novela nařízení o nezabavitelných částkách",
+      "sbirka": "441/2024 Sb.",
+      "typ": "narizeni_vlady",
+      "tier": "T5",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2024-441"
+    },
+    {
+      "id": "CZ-NOVELA-NV-548-2025",
+      "nazev": "Novela nařízení o nezabavitelných částkách",
+      "sbirka": "548/2025 Sb.",
+      "typ": "narizeni_vlady",
+      "tier": "T5",
+      "source_url": "https://www.zakonyprolidi.cz/cs/2025-548"
+    },
+    {
+      "id": "CZ-MET-ODDLUZENI-SPLATKY-2025",
+      "nazev": "Oficiální metodika výpočtu splátek pro rok 2025",
+      "typ": "metodika",
+      "tier": "T5",
+      "source_url": "https://insolvence.justice.cz/wp-content/uploads/2025/01/Metodika_vypoctu_splatek_od_2025.docx"
+    },
+    {
+      "id": "CZ-PORTAL-EXEKUCE-JUSTICE",
+      "nazev": "Portál exekuce.justice.cz",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://exekuce.justice.cz/"
+    },
+    {
+      "id": "CZ-PORTAL-INSOLVENCE-JUSTICE",
+      "nazev": "Portál insolvence.justice.cz",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://insolvence.justice.cz/"
+    },
+    {
+      "id": "CZ-PORTAL-JUSTICE",
+      "nazev": "Portál justice.cz",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://justice.cz/"
+    },
+    {
+      "id": "CZ-PORTAL-MPSV",
+      "nazev": "Portál MPSV",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://www.mpsv.cz/"
+    },
+    {
+      "id": "CZ-PORTAL-CNB",
+      "nazev": "Portál ČNB ke spotřebitelskému úvěru",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://www.cnb.cz/cs/dohled-financni-trh/legislativni-zakladna/ochrana-spotrebitele-a-spotrebitelsky-uver/pravni-predpisy/"
+    },
+    {
+      "id": "CZ-PORTAL-FS",
+      "nazev": "Portál Finanční správy k vymáhání daní",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://financnisprava.gov.cz/cs/dane/danovy-system-cr/postup-v-danovem-rizeni/vymahani"
+    },
+    {
+      "id": "CZ-INFO-EXEKUCE-PRAVNI-UPRAVA",
+      "nazev": "Právní úprava exekučního řízení a judikatura",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://exekuce.justice.cz/pravni-uprava-exekucniho-rizeni-a-judikatura/"
+    },
+    {
+      "id": "CZ-INFO-EXEKUCE-SRAZKY",
+      "nazev": "Srážky ze mzdy a jiných příjmů",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://exekuce.justice.cz/srazky-ze-mzdy-a-jinych-prijmu/"
+    },
+    {
+      "id": "CZ-INFO-EXEKUCE-NAKLADY",
+      "nazev": "Příkaz k úhradě nákladů exekuce",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://exekuce.justice.cz/prikaz-k-uhrade-nakladu-exekuce/"
+    },
+    {
+      "id": "CZ-INFO-INSOLVENCE-KALKULATOR",
+      "nazev": "Kalkulátor splátek v oddlužení",
+      "typ": "kalkulator",
+      "tier": "T5",
+      "source_url": "https://insolvence.justice.cz/kalkulator-splatek/"
+    },
+    {
+      "id": "CZ-INFO-INSOLVENCE-NOVELA-2024",
+      "nazev": "Informace Ministerstva spravedlnosti k novele insolvenčního zákona od 1. 10. 2024",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://justice.cz/en/web/msp/rozcestnik/-/clanek/od-1.-%C5%99%C3%ADjna-2024-plat%C3%AD-novela-insolven%C4%8Dn%C3%ADho-z%C3%A1kona"
+    },
+    {
+      "id": "CZ-INFO-MPSV-DSSP",
+      "nazev": "Dávka státní sociální pomoci",
+      "typ": "portal_info",
+      "tier": "T5",
+      "source_url": "https://www.mpsv.cz/davka-statni-socialni-pomoci"
+    }
+  ]
+}

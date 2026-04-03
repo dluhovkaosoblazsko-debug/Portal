@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E.L.A.I. - Výplatnice a přepočet</title>
+  <meta
+    name="description"
+    content="E.L.A.I. modul pro OCR výplatnic a deterministický přepočet čistého příjmu."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell calculator-page-shell helper-page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">PT</div>
+          <div class="brand-text">
+            <strong>Portál týmu</strong>
+            <span>Čtečka výplatních lístků</span>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <a class="btn btn-secondary btn-small" href="index.html">Zpět</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-compact" id="ocr-vyplatnice">
+        <div class="container">
+          <section class="card-glass helper-panel helper-panel-wide helper-panel-compact">
+              <div class="section-head calculator-head">
+                <div>
+                  <h2>Čtečka výplatních lístků</h2>
+                </div>
+                <p class="section-text">Nahrajte výplatnice a označte mzdy, které se mají zahrnout do automatického výpočtu.</p>
+              </div>
+            <p class="helper-kicker">
+              Doporučení: začněte jednou výplatnicí, ověřte kvalitu extrakce a až potom nahrávejte další.
+            </p>
+
+            <form id="ocrForm" class="helper-form-grid helper-form-grid-compact">
+              <label class="field field-wide">
+                <span>Naskenovaná výplatnice (PDF/JPG/PNG)</span>
+                <input id="payslipFile" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp" required />
+              </label>
+
+              <div class="field helper-actions-row">
+                <button type="submit" class="btn btn-primary">Načíst OCR data</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card-glass helper-output-panel helper-output-panel-full" id="nactene-vyplatnice">
+            <div class="section-head calculator-head">
+              <div>
+                <h2>Načtené výplatní lístky</h2>
+              </div>
+              <p class="section-text">Zaškrtnuté mzdy se okamžitě promítnou do spodního přehledu a exportů.</p>
+            </div>
+            <div id="ocrStatus" class="helper-status">Zatím bez nahraného dokumentu.</div>
+            <div class="helper-table-toolbar">
+              <button type="button" class="btn btn-secondary btn-small" id="addManualRowButton">
+                Přidat ruční řádek
+              </button>
+              <p class="helper-table-toolbar-note">
+                Vhodné pro případy, kdy je výplatnice nečitelná a údaje je potřeba dopsat ručně.
+              </p>
+            </div>
+            <div class="helper-table-wrap helper-table-wrap-wide">
+              <table class="helper-table" id="payslipTable">
+                <thead>
+                  <tr>
+                    <th>Období</th>
+                    <th>Zaměstnanec</th>
+                    <th>Zahrnout mzdu</th>
+                    <th>Hrubá mzda</th>
+                    <th class="helper-table-highlight-col">Čistá mzda (Kč)</th>
+                    <th>Odpracováno</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="helper-export-actions helper-export-actions-inline">
+              <button type="button" class="btn btn-secondary btn-small" id="exportExcelButton">
+                Export načtených dat do Excelu
+              </button>
+              <button type="button" class="btn btn-secondary btn-small" id="exportWordButton">
+                Export načtených dat do Wordu
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section" id="vypocty">
+        <div class="container">
+          <section class="card-glass helper-output-panel helper-output-panel-full">
+            <div class="section-head calculator-head">
+              <div>
+                <h2>Souhrn zahrnutých mezd</h2>
+              </div>
+              <p class="section-text">Spodní přehled se přepočítává automaticky podle zaškrtnutých mezd v horní tabulce.</p>
+            </div>
+
+            <div class="helper-summary-table-wrap">
+              <table class="helper-table helper-summary-table" id="calcSummaryTable">
+                <thead>
+                  <tr>
+                    <th>Počet zahrnutých výplatnic</th>
+                    <th>Součet čistých příjmů</th>
+                    <th>Průměrná čistá mzda</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="metricCount">0</td>
+                    <td id="metricTotal">0 Kč</td>
+                    <td id="metricAverage">0 Kč</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="helper-note">Do souhrnu se započítávají pouze řádky se zaškrtnutým polem „Zahrnout mzdu“.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="elai-payslips.js"></script>
+</body>
+</html>

@@ -1,5 +1,8 @@
 const SUPABASE_URL = "https://mqknxtloygnqbhjukhgt.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_DMe6KD4N6NbYT1ebAngfBg_xeOUbInv";
+const ATTENDANCE_URL = "dochazka.html";
+const CLIENT_ENTRY_URL = "novy-klient.html";
+const METHODOLOGY_URL = "metodika.html";
 
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -9,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCurrentDate();
   initActiveAppsCount();
   initNavHighlight();
+  initAttendanceLinks();
   initAuth();
 });
 
@@ -88,6 +92,32 @@ function initNavHighlight() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+function initAttendanceLinks() {
+  const attendanceLinks = document.querySelectorAll("[data-attendance-link]");
+  attendanceLinks.forEach((link) => {
+    link.setAttribute("href", ATTENDANCE_URL);
+  });
+
+  const clientEntryLinks = document.querySelectorAll("[data-client-entry-link]");
+  clientEntryLinks.forEach((link) => {
+    link.setAttribute("href", CLIENT_ENTRY_URL);
+  });
+
+  const methodologyLinks = document.querySelectorAll("[data-methodology-link]");
+  methodologyLinks.forEach((link) => {
+    link.setAttribute("href", METHODOLOGY_URL);
+  });
+
+  const attendancePeriod = document.getElementById("attendancePeriod");
+  if (!attendancePeriod) return;
+
+  const now = new Date();
+  attendancePeriod.textContent = now.toLocaleDateString("cs-CZ", {
+    month: "long",
+    year: "numeric"
+  });
 }
 
 async function initAuth() {
