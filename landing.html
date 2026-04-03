@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portál týmu</title>
+  <meta
+    name="description"
+    content="Veřejná vstupní stránka interního portálu týmu s odkazem do zabezpečené části."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <div class="brand-mark">PT</div>
+          <div class="brand-text">
+            <strong>Portál týmu</strong>
+            <span>Jednotné pracovní prostředí</span>
+          </div>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Otevřít menu"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav" aria-label="Hlavní navigace">
+          <a href="#o-portalu">O portálu</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="header-actions">
+          <a
+            class="btn btn-secondary btn-small"
+            href="https://portal-040d.onrender.com/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vstup do interní části
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="o-portalu">
+        <div class="container hero-grid">
+          <div class="hero-content card-glass">
+            <div class="badge">Interní portál</div>
+            <h1>Všechny důležité nástroje na jednom místě</h1>
+            <p class="hero-text">
+              Portál sjednocuje pracovní aplikace, přehledy, metodické materiály a
+              další interní nástroje do jednoho rozhraní. Veřejná stránka slouží jako
+              úvodní rozcestník, samotná pracovní část je chráněná heslem.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://portal-040d.onrender.com/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Otevřít interní portál
+              </a>
+              <a class="btn btn-ghost" href="#kontakt">Kontakt</a>
+            </div>
+          </div>
+
+          <aside class="hero-side card-glass">
+            <h2>Stav portálu</h2>
+            <ul class="status-list">
+              <li>
+                <span class="status-dot dot-green"></span>
+                <span>Portál je dostupný</span>
+              </li>
+              <li>
+                <span class="status-dot dot-blue"></span>
+                <span><strong>5</strong> aplikací aktivních</span>
+              </li>
+              <li>
+                <span class="status-dot dot-gray"></span>
+                <span>Další moduly se průběžně doplňují</span>
+              </li>
+            </ul>
+            <div class="status-meta">
+              <span>Poslední kontrola</span>
+              <strong id="landingCurrentDate">—</strong>
+            </div>
+
+            <div class="status-logo-box">
+              <img src="logo_cech.png" alt="Logo organizace" class="status-logo-img" />
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-compact">
+        <div class="container">
+          <div class="priority-grid">
+            <article class="priority-panel priority-panel-attendance card-glass">
+              <div class="priority-copy">
+                <p class="section-label">Co v portálu najdete</p>
+                <h2>Aplikace, přehledy a pracovní nástroje</h2>
+                <p class="priority-text">
+                  Interní část obsahuje docházku, evidenci klientů, dashboardy,
+                  právního pomocníka E.L.A.I., čtečku výplatních lístků i pomocnou
+                  kalkulačku oddlužení.
+                </p>
+              </div>
+            </article>
+
+            <article class="priority-panel priority-panel-client card-glass" id="kontakt">
+              <div class="priority-copy">
+                <p class="section-label">Kontakt</p>
+                <h2>Správa interního portálu</h2>
+                <p class="priority-text">
+                  Potřebujete přístup do interní části nebo nahlásit problém? Ozvěte se
+                  správci systému.
+                </p>
+              </div>
+              <div class="priority-actions">
+                <div class="priority-meta">
+                  <span>E-mail správce</span>
+                  <strong>dluhovka.osoblazsko@gmail.com</strong>
+                </div>
+                <a class="btn btn-primary" href="mailto:dluhovka.osoblazsko@gmail.com">
+                  Napsat správci
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Portál týmu</strong>
+          <p>Veřejná vstupní stránka k zabezpečené interní části.</p>
+        </div>
+
+        <div class="footer-meta">
+          <p>Statická veřejná stránka</p>
+          <p>
+            Interní vstup:
+            <a href="https://portal-040d.onrender.com/index.html" target="_blank" rel="noopener noreferrer">
+              portal-040d.onrender.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="landing.js"></script>
+</body>
+</html>
